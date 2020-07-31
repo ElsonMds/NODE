@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "SET NODE_ENV=development & node server",
-    "dev": "node server"
+    "start": "SET NODE_ENV=production & nodemon server",
+    "dev": "SET NODE_ENV=developement & nodemon server"
   },
   "keywords": [],
   "author": "",
@@ -13,5 +13,8 @@
   "dependencies": {
     "dotenv": "^8.2.0",
     "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
   }
 }
