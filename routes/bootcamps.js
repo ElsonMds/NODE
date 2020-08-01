@@ -1,27 +1,25 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
+const {
+  getBootcamp,
+  getBootcamps,
+  createtBootcamp,
+  updateBootcamp,
+  deleteBootcamp,
+} = require("../controllers/bootcamps");
 
+/**
+*  para a rota '/' mapeada para  '/api/v1/bootcamps' 
+*  mapei get e post para os metodos getBootcamps e createBootcamp
+*/
+router.route('/')
+.get(getBootcamps)
+.post(createtBootcamp);
 
+router.route('/:id')
+.get(getBootcamp)
+.put(updateBootcamp)
+.delete(deleteBootcamp);
 
-
-//rota - manipulador de rota
-router.get('/',(req,res)=>{
-    res.status(200).json({sucesso:true,msg:'mostrando todos os bootcamps'})
-})
-
-router.post('/',(req,res)=>{
-    res.status(200).json({sucesso:true,msg:'criar novo bootcamps'})
-})
-
-router.put('/:id',(req,res)=>{
-    res.status(200).json({sucesso:true,msg:`atualizar bootcamp ${req.params.id}`})
-})
-
-
-router.delete('/:id',(req,res)=>{
-    res.status(200).json({sucesso:true,msg:`atualizar bootcamp ${req.params.id}`})
-})
-
-
-module.exports=router;
+module.exports = router;
