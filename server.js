@@ -1,6 +1,6 @@
 const express = require('express');
 const dotenv = require('dotenv');
-
+const bootcapms=require('./routes/bootcamps');
 
 ///trazer as configuraçoes dotenv
 dotenv.config({path:'./config/config.env'});
@@ -9,10 +9,11 @@ const PORT = process.env.PORT || 5000;
 //inicializa o app com express
 const app= express();
 
-//importa as rotas
-const bootcapms=require('./routes/bootcamps');
 
-//monta as rotas na url /conecta as rotas com essa url
+
+
+
+//para toda requisicao ao ponto '/api/v1/bootcamps' delegue ao modulo bootcamps
 app.use('/api/v1/bootcamps',bootcapms);
 
 app.listen(PORT,()=>{
