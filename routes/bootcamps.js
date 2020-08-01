@@ -10,16 +10,15 @@ const {
 } = require("../controllers/bootcamps");
 
 /**
-*  para a rota '/' mapeada para  '/api/v1/bootcamps' 
-*  mapei get e post para os metodos getBootcamps e createBootcamp
-*/
-router.route('/')
-.get(getBootcamps)
-.post(createtBootcamp);
+ *  para a rota '/' mapeada para  '/api/v1/bootcamps'
+ *  mapei get e post para os metodos getBootcamps e createBootcamp
+ */
+router.route("/").get(getBootcamps).post(createtBootcamp);
 
-router.route('/:id')
-.get(getBootcamp)
-.put(updateBootcamp)
-.delete(deleteBootcamp);
+router
+  .route("/:id")
+  .get(getBootcamp)
+  .put(updateBootcamp)
+  .delete(deleteBootcamp);
 
 module.exports = router;
